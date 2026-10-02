@@ -1,8 +1,10 @@
 const ENDPOINT_URL = "https://pokeapi.co/api/v2";
 
-export const listPokemons = async () => {
+export const listPokemons = async (page = 1) => {
   try {
-    const response = await fetch(`${ENDPOINT_URL}/pokemon`);
+    const response = await fetch(
+      `${ENDPOINT_URL}/pokemon?offset=${(page - 1) * 20}&limit=20`,
+    );
     const data = await response.json();
     return data.results;
   } catch {

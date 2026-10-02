@@ -13,6 +13,9 @@ export default function PokemonCard({ pokemon }) {
       <p>Height: {pokemon.height}</p>
       <p>Weight: {pokemon.weight}</p>
       <p>Base Experience: {pokemon.base_experience}</p>
+      <p>
+        Types: {pokemon.types.map((typeInfo) => typeInfo.type.name).join(", ")}
+      </p>
     </div>
   );
 }
